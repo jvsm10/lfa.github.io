@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8">
+    <meta name="description" content="Simulador de automatos finitos" />
+		<meta name="author" content="Kyle Dickerson" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"><link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  
+
+    <title>Automatos Finitos</title>
+    <link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/fsm.css" />
+    <link rel="shortcut icon" href="images/Capturar.PNG" />
+  </head>
+
+<body>
+<div class="col-lg-1 menu">
+    
+      <ul >
+        <li class="nav-item"> <h1 class="logo-menu noselect">LFA </h1></li>
+        <li class="nav-item"> <a class="nav-link" href="../../index.html">Inicio</a></li>
+        <li class="nav-item"> <a class="nav-link" href="../regexp/index.html">RegExp</a></li>
+        <li class="nav-item"> <a class="nav-link" href="../gramatica/index.html">Gramatica</a></li>
+        <li class="nav-item"> <a class="nav-link" href="#">Autômatos Finitos</a></li>
+      </ul>
+   
+  </div>
+
+  <div id="tools">
+      <label>Testar:</label></br>
+      <input id="testString" type="text" value="" /></br></br>
+      <div style="text-align:center;">
+        <button id="testBtn" onclick="fsm.test($('#testString').val());"  title="Testar"><img src="images/arrow_right.png" /></button>
+          <button id="debugBtn" onclick="fsm.debug($('#testString').val());" class="debuga"  title="Passo a Passo"><img src="images/icons8-botão-_play_-dentro-de-um-círculo-24.png" /></button>
+          <button id="stopBtn" onclick="fsm.debugStop();" class="debuga" disabled="disabled" title="Parar Passo a Passo"><img src="images/icons8-pausa-circular-24.png" /></button>
+      </div>
+      <div id="testResult">&nbsp;</div>
+      <label>Multiplas entradas (1 por linha):</label></br>
+      <textarea id="acceptStrings" style="margin-bottom:5px;height: 100px;width: 170px;border: 1px solid #8bc34a;
+    box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);-moz-border-radius: 10px;
+  -webkit-border-radius: 10px;resize: none;"></textarea>
+  </br></br>
+        <label>Testar:</label>
+        <button id="bulkTestBtn" class="image" style="margin-left:15px;" onclick="fsm.test({accept:$('#acceptStrings').val().split('\n'), reject:$('#acceptStrings').val().split('\n')});" title="Testar multiplas entrada"><img src="images/empty.png" /></button></br></br>
+        <label>Resultado:</label></br>
+      <div id="resultConsole">
+      </div> </div>
+   
+  </br>
+<div id="boxes">
+
+<div id="dialog" class="window">
+<b>Ajuda</b>
+
+<!-- Botão para fechar a janela tem class="close" -->
+<a href="#" class="close"> [X]</a><br />
+<br>-O estado inicial já está definido("inicio")<br>
+<br>-Clique na caixa de seleção para marcar o estado como final<br>
+<br>-Puxe e arraste a partir do ponto azul para criar uma nova conexão<br>
+<br>-Dois cliques para criar um novo estado<br>
+<br>-Clique na conexão para alterar ou excluir<br></div>
+
+<div id="mask"></div>
+</div>
+
+    <div id="mainHolder">
+      <h1>
+          Automato Finito:
+          <button class="delegate" disabled="disabled" title="Automato Finito Deterministico">AFD</button>
+          <button class="delegate" title="Automato Finito Não Deterministico">AFND</button>
+          <button id="addStateBtn" onclick="fsm.addState();" class="mais" style="margin-left: 300px;" title="Adicionar estado"><img src="images/icons8-mais-50.png" class="mais" /></button>
+          <button id="resetBtn" onclick="fsm.reset();" class="mais" title="Limpar"><img src="images/icons8-apagar-24.png" class="mais" /></button>
+          <a href="#dialog" name="modal" title="Ajuda"><img src="images/icons8-ajuda-24.png" class="mais" /></a>
+
+      </h1>
+      <div id="machineGraph">
+          <div id="AFDStatus" style="display:none;"></div>
+      </div>
+      <h5 id="bulkResultHeader" style="text-align:left;">
+        <span id="fsmDebugInputStatus" class="fsmStatus" style="display:none;">
+          <span class="consumedInput"></span>
+          <span class="currentInput"></span>
+          <span class="futureInput"></span>
+        </span>
+      </h5>
+  </div>
+
+    <!-- <div id="footer">
+			<div>
+			</div>
+    </div> -->
+
+
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="js/jquery.jsPlumb-1.3.16-all-min.js"></script>
+    <script src="js/fsm_examples.js"></script>
+    <script src="js/AFD.js"></script>
+    <script src="js/AFND.js"></script>
+    <script src="js/PDA.js"></script>
+    <script src="js/fsm_ui.js"></script>
+    <script src="js/afd_delegate.js"></script>
+    <script src="js/afnd_delegate.js"></script>
+    <script src="js/pda_delegate.js"></script>
+    <!-- Piwik Analytics -->
+		<script type="text/javascript">
+			var _paq = _paq || [];
+			_paq.push(["trackPageView"]);
+			_paq.push(["enableLinkTracking"]);
+
+			(function() {
+				var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.serindu.com/";
+				_paq.push(["setTrackerUrl", u+"piwik.php"]);
+				_paq.push(["setSiteId", "1"]);
+				var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+				g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<!-- End Piwik Code -->
+
+
+
+
+  </body>
+</html>

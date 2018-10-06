@@ -1,0 +1,323 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto";
+  font-size: 14px;
+  background-size: 200% 100% !important;
+  -webkit-animation: move 10s ease infinite;
+  animation: move 10s ease infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+  height: 100vh;
+}
+
+
+
+
+
+/*
+--------------------------------------------------------------------------
+*/
+
+
+.container-fluid{
+
+  height: auto;
+ 
+}
+
+.row{
+  height: 100vh;
+}
+
+.conteudo{
+  
+  margin: 0 auto;
+ position: relative;
+}
+
+
+.menu{
+  padding: 0;
+  width: 100%; 
+  height: auto;
+  background-color: #0b1017;
+  float: left;
+  
+}
+.menu ul {
+
+  margin-top: 50px;
+
+}
+.menu ul li{
+
+  margin: 0; padding: 0px;
+  list-style-type: none;
+  text-align: left;
+ 
+}
+
+.nav-link{
+  color: white;
+  text-align: left;
+}
+
+.nav-link:link {
+
+
+  font-weight: bold;
+  text-decoration: none;
+  padding: 8px;
+  display: block;
+}
+
+.nav-link:hover {
+     background-color:  #CFD8DC;
+     color: black;
+  }
+
+.logo-menu{
+  font-size: 50px;
+  margin: 50px 0px 50px 0px;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+  text-decoration-color: #CFD8DC;
+}
+
+.logo-menu:hover{
+  color: #3ECCFF;
+  text-decoration-color: #CFD8DC;
+}
+
+.noselect{
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+.user {
+  width: 90%;
+  max-width: 340px;
+  margin: 10vh auto;
+}
+
+.title-info{
+
+
+  font-family: "Roboto";
+  text-align: center;
+  width: auto;
+  color: white;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.form-entrada{
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #A2C7E5;
+  background-color: #A2C7E5;
+  
+}
+
+.btn-cor{
+  background-color: inherit;
+  border-color: #3ECCFF;
+  border-radius: 10px;
+  color:#3ECCFF;
+  border-width: 2px;
+  font-weight: bold;
+}
+
+
+.form-gramatica{
+   border-radius: 10px;
+    background-color: #272b2e;
+    padding: 20px;
+    height: auto;
+    max-height: 100%;
+}
+.user__header {
+  text-align: center;
+  opacity: 0;
+  margin: 30px 0px 30px 0px;
+  -webkit-transform: translate3d(0, 500px, 0);
+  transform: translate3d(0, 500px, 0);
+  -webkit-animation: arrive 500ms ease-in-out 0.7s forwards;
+  animation: arrive 500ms ease-in-out 0.7s forwards;
+}
+
+.user__title {
+  font-size: 20px;
+  margin-bottom: -10px;
+  font-weight: 500;
+  color: white;
+}
+
+.teste{
+  width: 100%;
+}
+
+/* 
+gramatica-------------------------------------------------------------
+*/
+
+.table-hover tbody tr:hover {
+  background-color: #CFD8DC;
+}
+
+.btn{
+  margin: 2px;
+  width: 70px;
+  padding: 2px;
+}
+
+.entrada{
+  margin-top: 10px;
+  width: 150px;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+.entrada:hover{
+  border-color: #3ECCFF;
+}
+
+.incorreto{background-color: #E8281D }
+.correto{background-color: #00C07F }
+.selecionado{background-color: #CFD8DC; color:black;}
+
+/*
+gramatica--------------------------------------------------------------------------
+*/
+@-webkit-keyframes NO {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes NO {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+@-webkit-keyframes arrive {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes arrive {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@-webkit-keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+
+
+/*--------------------------------------------------------------*/
+
+ /* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    margin: 0 auto;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+} 
+
+
+
+/*---------------------------------------------------------*/
